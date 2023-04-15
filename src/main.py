@@ -1,7 +1,8 @@
+import logging
 import tkinter as tk
 from tkinter import ttk
 from calculator import Calculator
-import logging 
+
 
 def button_press(entry):
     """Command function for each button widget, executed when a button is pressed.
