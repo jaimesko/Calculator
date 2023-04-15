@@ -1,7 +1,7 @@
 import logging
 
 class Calculator:
-    """_summary_
+    """Calculator's functions to be performed on the expression.
     """
     
     def __init__(self):

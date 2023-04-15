@@ -4,6 +4,8 @@ from calculator import Calculator
 import logging 
 
 def button_press(entry):
+    """Command function for each button widget, executed when a button is pressed.
+    """
     if entry in [str(n) for n in range(0, 10)]:
         c.add_to_expression(entry)
     elif entry in ['+', '-', '*', '/', '(', ')', '.']:
@@ -18,6 +20,7 @@ def button_press(entry):
     expression.set(c.expression)
 
 def widgets():
+    """Creates the button widgets."""
     ttk.Entry(frame, textvariable=expression).grid(columnspan=5, ipadx=90)
 
     ttk.Button(frame, text="(", command=lambda: button_press("(")).grid(column=1, row=1)
@@ -46,6 +49,8 @@ def widgets():
     ttk.Button(frame, text="+", command=lambda: button_press("+")).grid(column=4, row=5)
 
 def bindings():
+    """Creates the key bindings to close the window, update the expression after each key is released, and evaluate the expression.
+    """
     window.bind('<Escape>', lambda f: window.destroy())
     window.bind('<KeyRelease>', lambda f: c.update_expression(expression.get()))
     window.bind('<Return>', lambda f: button_press("="))
